@@ -68,6 +68,5 @@ class KnownValues(unittest.TestCase):
             result = roman1.to_roman(integer)
             self.assertEqual(numeral, result)
 
-
 if __name__ == '__main__':
     unittest.main()

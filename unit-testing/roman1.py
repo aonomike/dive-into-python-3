@@ -1,4 +1,4 @@
-
+import roman2
 roman_numeral_map = (('M',  1000),
                      ('CM', 900),
                      ('D',  500),
@@ -15,6 +15,12 @@ roman_numeral_map = (('M',  1000),
 def to_roman(k):
     
     '''convert integer to roman numeral'''
+   
+    if not isinstance(k, int):
+        raise(roman2.NotIntegerError('input value must be integer'))
+    if not ( 0< k <= 3999):
+        raise(roman2.OutOfRangeError('number out of range(must be less than 1..3999)'))
+
     result = ''
     for numeral, integer in roman_numeral_map:
         while k >= integer:
