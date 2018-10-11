@@ -12,12 +12,13 @@ roman_numeral_map = (('M',  1000),
                      ('V',  5),
                      ('IV', 4),
                      ('I',  1))    
-def to_roman(n):
+def to_roman(k):
     
     '''convert integer to roman numeral'''
     result = ''
-    for numeral, integer in raman_numeral_map:
-        while n >= integer:
-            resilt += numeral
-            n -= integer
+    for numeral, integer in roman_numeral_map:
+        while k >= integer:
+#            import pdb; pdb.set_trace()
+            result += numeral
+            k -= integer
     return result
