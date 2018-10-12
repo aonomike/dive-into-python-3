@@ -3,3 +3,6 @@ class OutOfRangeError(ValueError):
 
 class NotIntegerError(ValueError):
     pass
+
+class InvalidRomanNumeralError(ValueError):
+    pass
