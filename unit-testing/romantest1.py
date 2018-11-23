@@ -67,12 +67,14 @@ class KnownValues(unittest.TestCase):
         for integer, numeral in self.known_values:
             result = roman1.to_roman(integer)
             self.assertEqual(numeral, result)
-    
+
     def test_from_roman_known_values(self):
         '''from_roman(to_roman(n)) == n for all n'''
         for integer in range(1, 4000):
             numeral = roman1.to_roman(integer)
             result = roman1.from_roman(numeral)
             self.assertEquals(integer, result)
+
+
 if __name__ == '__main__':
     unittest.main()

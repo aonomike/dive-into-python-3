@@ -26,6 +26,7 @@ roman_numeral_pattern = re.compile('''
     $                   # end of string
     ''', re.VERBOSE)
 
+
 def to_roman(k):
 
     '''convert integer to roman numeral'''
@@ -50,6 +51,9 @@ def from_roman(s):
     if not roman_numeral_pattern.search(s):
         raise roman2.InvalidRomanNumeralError('Invalid Roman Numeral: {0}'.format(s))
 
+    if s == '':
+        raise roman2.InvalidRomanNumeralError('Invalid Roman Numeral: {0}'.format(s))
+
     result = 0
     index = 0
 
@@ -58,6 +62,4 @@ def from_roman(s):
         while s[index:index+len(numeral)] == numeral:
             result += integer
             index += len(numeral)
-            import pdb
-            #pdb.set_trace()
     return result
