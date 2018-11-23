@@ -51,7 +51,7 @@ def from_roman(s):
     if not roman_numeral_pattern.search(s):
         raise roman2.InvalidRomanNumeralError('Invalid Roman Numeral: {0}'.format(s))
 
-    if s == '':
+    if not s:
         raise roman2.InvalidRomanNumeralError('Invalid Roman Numeral: {0}'.format(s))
 
     result = 0
