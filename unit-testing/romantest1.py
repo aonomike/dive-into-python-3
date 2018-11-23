@@ -1,10 +1,10 @@
 import roman1
 import unittest
 
+
 class KnownValues(unittest.TestCase):
 
-    known_values = ((1, 'I'),
-                    (2, 'II'),
+    known_values = (
                      (3, 'III'),
                      (4, 'IV'),
                      (5, 'V'),
@@ -58,8 +58,12 @@ class KnownValues(unittest.TestCase):
                      (3844, 'MMMDCCCXLIV'),
                      (3888, 'MMMDCCCLXXXVIII'),
                      (3940, 'MMMCMXL'),
-                     (3999, 'MMMCMXCIX'))
-
+                     (3999, 'MMMCMXCIX'),
+                     (4000, 'MMMM'),
+                     (4500, 'MMMMD'),
+                     (4888, 'MMMMDCCCLXXXVIII'),
+                     (4940, 'MMMMCMXL'),
+                     (4999, 'MMMMCMXCIX'))
 
     def test_to_roman_known_values(self):
         ''' to_roman should give known result with known input'''
@@ -70,10 +74,12 @@ class KnownValues(unittest.TestCase):
 
     def test_from_roman_known_values(self):
         '''from_roman(to_roman(n)) == n for all n'''
-        for integer in range(1, 4000):
+        # self.assertEqual(roman1.from_roman('MMMMCMXCIX'), 4999)
+        for integer in range(1, 5000):
             numeral = roman1.to_roman(integer)
+
             result = roman1.from_roman(numeral)
-            self.assertEquals(integer, result)
+            self.assertEqual(integer, result)
 
 
 if __name__ == '__main__':

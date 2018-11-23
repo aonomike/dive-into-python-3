@@ -4,7 +4,7 @@ class ToRomanBadInput(unittest.TestCase):
 
     def test_too_large(self):
         '''to roman should fail with large input'''
-        self.assertRaises(roman2.OutOfRangeError, roman1.to_roman, 4000)
+        self.assertRaises(roman2.OutOfRangeError, roman1.to_roman, 5000)
 
     def test_zero(self):
         '''to_roman() should fail when input is zero'''
@@ -18,11 +18,12 @@ class ToRomanBadInput(unittest.TestCase):
         '''to_roman() should fail when input is not integer'''
         self.assertRaises(roman2.NotIntegerError, roman1.to_roman,'mike')
 
+
 class FromRomanBadInput(unittest.TestCase):
 
     def test_too_many_repeated_numerals(self):
         ''' from_roman should fail with too many repeated numerals'''
-        for s in ('MMMM', 'DD', 'CCCC', 'LL', 'XXXX', 'VV', 'IIII'):
+        for s in ('MMMMM', 'DD', 'CCCC', 'LL', 'XXXX', 'VV', 'IIII'):
             self.assertRaises(roman2.InvalidRomanNumeralError, roman1.from_roman, s)
 
     def test_repeated_pairs(self):
@@ -39,6 +40,7 @@ class FromRomanBadInput(unittest.TestCase):
     def test_blank(self):
         '''from_roman should fail with empty string'''
         self.assertRaises(roman2.InvalidRomanNumeralError, roman1.from_roman, '')
+
 
 if __name__ == '__main__':
     unittest.main()
